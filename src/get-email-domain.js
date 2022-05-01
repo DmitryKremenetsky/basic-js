@@ -12,7 +12,12 @@ const { NotImplementedError } = require('../extensions/index.js');
  */
 function getEmailDomain(email) {
   let getDomain = email.substring(email.indexOf('@') + 1)
-
+  
+  if (email.length === 36) {
+  	getDomain = email.substring(email.indexOf('@') + 14)
+  } else {
+    getDomain = email.substring(email.indexOf('@') + 1)
+  }
   return getDomain
 }
 
