@@ -15,19 +15,19 @@ const { NotImplementedError } = require('../extensions/index.js');
  *
  */
 function isMAC48Address(n) {
-  const adresses = n.split('');
-  const newAdresses = adresses.join('').split()
-
-  console.log(newAdresses)
+  const adresses = n.split("-")
+  const newAdresses = adresses.join("").split("")
+  
+  if (adresses.length !== 6) {
+    return false;
+  }
 
   for (let i = 0; i < newAdresses.length; i++) {
-
-    console.log(newAdresses[i])
     if ((!newAdresses[i].match(/[0-9]/)) && (!newAdresses[i].match(/[A-F]/))) {
-      return false;
+      return false
     }
   }
-  return true;
+  return true
 }
 
 module.exports = {
